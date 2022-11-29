@@ -32,6 +32,9 @@
 	  
 	  <hr>
 	  
+	  
+	  
+	  <form action="https://script.google.com/macros/s/AKfycbzeUWm44aXg20aqn_OojXnWY_AVVj0TuBnaDBH3ptPGludcvPpSGOqRJvm0wEZFEHPJPg/exec" method="post">
 	  <div class="container">
       <div class="row text-center">
         <div class="col-md-4 pb-1 pb-md-0">
@@ -41,9 +44,9 @@
               <h5 class="card-title">Les boules de Nowel</h5>
               <p class="card-text"><strong>1$ l'unité &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4$ pour 5</strong></p>
 				<div class="number-input">
-				  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-				  <input class="quantity" min="0" value="0" name="quantity" type="number">
-				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+				  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" type="button"></button>
+				  <input name="Qte-boules" class="quantity" min="0" value="0" name="quantity" type="number" required>
+				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" type="button"></button>
 				</div>
             </div>
           </div>
@@ -55,9 +58,9 @@
               <h5 class="card-title">Les cartes de Nowel</h5>
               <p class="card-text"><strong>2$ l'unité &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5$ pour 3</strong></p>
 				<div class="number-input">
-				  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-				  <input class="quantity" min="0" value="0" name="quantity" type="number">
-				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+				  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" type="button"></button>
+				  <input name="Qte-cartes" class="quantity" min="0" value="0" name="quantity" type="number" required>
+				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" type="button"></button>
 				</div>
             </div>
           </div>
@@ -67,11 +70,11 @@
             <img class="card-img-top" src="images/400X200.gif" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Les étiquettes de Nowel</h5>
-              <p class="card-text"><strong>1$ pour 5</strong></p>
+              <p class="card-text"><strong>1$ pour un paquet de 5</strong></p>
 				<div class="number-input">
-				  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-				  <input class="quantity" min="0" value="0" name="quantity" type="number">
-				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+				  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" type="button"></button>
+				  <input class="quantity" min="0" value="0" name="quantity" type="number" required>
+				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" type="button"></button>
 				</div>
             </div>
           </div>
@@ -80,21 +83,22 @@
 		  <br>
 		  <label><strong>Nom: </strong></label>
 		  <br>
-		  <input type="text" for="lname">
+		  <input name="Nom" type="text" for="lname" required>
 		  <br>
 		  <br>
 		  <label><strong>Prénom: </strong></label>
 		  <br>
-		  <input type="text" for="fname">
+		  <input name="Prénom" type="text" for="fname" required>
 		  <br>
 		  <br>
 		  <label><strong>Groupe: </strong></label>
 		  <br>
-		  <input type="text" for="group">
+		  <input name="Groupe" type="text" for="group" required>
 		  <br>
 		  <br>
 		  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Confimer</button>
 	 </div>
+	  </form>
 	  
 	  <hr>
 	  
