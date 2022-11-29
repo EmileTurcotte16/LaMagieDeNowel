@@ -40,6 +40,11 @@
             <div class="card-body">
               <h5 class="card-title">Les boules de Nowel</h5>
               <p class="card-text"><strong>1$ l'unité &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4$ pour 5</strong></p>
+				<div class="number-input">
+				  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+				  <input class="quantity" min="0" value="0" name="quantity" type="number">
+				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+				</div>
             </div>
           </div>
         </div>
@@ -49,6 +54,11 @@
             <div class="card-body">
               <h5 class="card-title">Les cartes de Nowel</h5>
               <p class="card-text"><strong>2$ l'unité &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5$ pour 3</strong></p>
+				<div class="number-input">
+				  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+				  <input class="quantity" min="0" value="0" name="quantity" type="number">
+				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+				</div>
             </div>
           </div>
         </div>
@@ -58,6 +68,11 @@
             <div class="card-body">
               <h5 class="card-title">Les étiquettes de Nowel</h5>
               <p class="card-text"><strong>1$ pour 5</strong></p>
+				<div class="number-input">
+				  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+				  <input class="quantity" min="0" value="0" name="quantity" type="number">
+				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+				</div>
             </div>
           </div>
         </div>
