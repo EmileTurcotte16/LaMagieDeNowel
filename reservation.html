@@ -48,6 +48,8 @@
 				  <input name="Qte-boules" class="quantity" min="0" value="0" type="number" required>
 				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" type="button"></button>
 				</div>
+				<br>
+				<label><strong>unité(s)</strong></label>
             </div>
           </div>
         </div>
@@ -62,6 +64,8 @@
 				  <input name="Qte-cartes" class="quantity" min="0" value="0" type="number" required>
 				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" type="button"></button>
 				</div>
+				<br>
+				<label><strong>unité(s)</strong></label>
             </div>
           </div>
         </div>
@@ -76,6 +80,8 @@
 				  <input name="Qte-étiquettes" class="quantity" min="0" value="0" type="number" required>
 				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" type="button"></button>
 				</div>
+				<br>
+				<label><strong>paquet(s) de 5 unités</strong></label>
             </div>
           </div>
         </div>
@@ -83,17 +89,17 @@
 		  <br>
 		  <label><strong>Nom: </strong></label>
 		  <br>
-		  <input name="Nom" type="text" for="lname" required>
+		  <input name="Nom" type="text" placeholder="Nom" required>
 		  <br>
 		  <br>
 		  <label><strong>Prénom: </strong></label>
 		  <br>
-		  <input name="Prénom" type="text" for="fname" required>
+		  <input name="Prénom" type="text" placeholder="Prénom" required>
 		  <br>
 		  <br>
 		  <label><strong>Groupe: </strong></label>
 		  <br>
-		  <input name="Groupe" type="number" for="group" required>
+		  <input name="Groupe" type="number" placeholder="Groupe" required>
 		  <br>
 		  <br>
 		  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Confimer</button>
@@ -135,6 +141,26 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap-4.4.1.js"></script>
-	<script src="js/submit.js"></script>
+	<script src="js/sweetalert.js"></script>
+	<script>
+		window.addEventListener("load", function() {
+			const form = document.getElementById('cForm');
+			form.addEventListener("submit", function(e) {
+				Swal.fire({title: "Veuillez patienter", text: "Nous procédons votre commande...", showSpinner: true, showConfirmButton: false, allowOutsideClick: false});
+				e.preventDefault();
+				const data = new FormData(form);
+				const action = e.target.action;
+				fetch(action, {
+					method: 'POST',
+					body: data,
+				})
+				.then(() => {
+					Swal.fire({title: "Merci!", text: "Votre commande a été enregistrée!", icon: "success", allowOutsideClick: false, confirmButtonText: "Retourner au menu principal"}).then(function() {
+						location.href="/index.html";
+					})
+				})
+			});
+		});
+  </script>
   </body>
 </html>
