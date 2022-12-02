@@ -146,7 +146,8 @@
 		window.addEventListener("load", function() {
 			const form = document.getElementById('cForm');
 			form.addEventListener("submit", function(e) {
-				Swal.fire({title: "Veuillez patienter", text: "Nous procédons votre commande...", showSpinner: true, showConfirmButton: false, allowOutsideClick: false});
+				Swal.fire({title: "Veuillez patienter", text: "Nous procédons votre commande...", showConfirmButton: false, allowOutsideClick: false});
+				Swal.showLoading();
 				e.preventDefault();
 				const data = new FormData(form);
 				const action = e.target.action;
