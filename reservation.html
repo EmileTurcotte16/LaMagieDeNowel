@@ -45,7 +45,7 @@
               <p class="card-text"><strong>1$ l'unité &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4$ pour 5</strong></p>
 				<div class="number-input">
 				  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" type="button"></button>
-				  <input name="Qte-boules" class="quantity" min="0" value="0" type="number" required>
+				  <input name="Qte-boules" id="qb" class="quantity" min="0" value="0" type="number" required>
 				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" type="button"></button>
 				</div>
 				<br>
@@ -61,7 +61,7 @@
               <p class="card-text"><strong>2$ l'unité &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5$ pour 3</strong></p>
 				<div class="number-input">
 				  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" type="button"></button>
-				  <input name="Qte-cartes" class="quantity" min="0" value="0" type="number" required>
+				  <input name="Qte-cartes" id="qc" class="quantity" min="0" value="0" type="number" required>
 				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" type="button"></button>
 				</div>
 				<br>
@@ -77,7 +77,7 @@
               <p class="card-text"><strong>1$ pour un paquet de 5</strong></p>
 				<div class="number-input">
 				  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" type="button"></button>
-				  <input name="Qte-étiquettes" class="quantity" min="0" value="0" type="number" required>
+				  <input name="Qte-étiquettes" id="qe" class="quantity" min="0" value="0" type="number" required>
 				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" type="button"></button>
 				</div>
 				<br>
@@ -87,17 +87,17 @@
         </div>
       </div>
 		  <br>
-		  <label><strong>Nom: </strong></label>
+		  <label><strong>Nom de l'élève: </strong></label>
 		  <br>
 		  <input name="Nom" type="text" placeholder="Nom" required>
 		  <br>
 		  <br>
-		  <label><strong>Prénom: </strong></label>
+		  <label><strong>Prénom de l'élève: </strong></label>
 		  <br>
 		  <input name="Prénom" type="text" placeholder="Prénom" required>
 		  <br>
 		  <br>
-		  <label><strong>Groupe: </strong></label>
+		  <label><strong>Groupe de l'élève: </strong></label>
 		  <br>
 		  <input name="Groupe" type="number" placeholder="Groupe" required>
 		  <br>
@@ -145,21 +145,28 @@
 	<script>
 		window.addEventListener("load", function() {
 			const form = document.getElementById('cForm');
+			const qb = document.getElementById('qb');
+			const qc = document.getElementById('qc');
+			const qe = document.getElementById('qe');
 			form.addEventListener("submit", function(e) {
-				Swal.fire({title: "Veuillez patienter", text: "Nous procédons votre commande...", showConfirmButton: false, allowOutsideClick: false});
-				Swal.showLoading();
 				e.preventDefault();
-				const data = new FormData(form);
-				const action = e.target.action;
-				fetch(action, {
-					method: 'POST',
-					body: data,
-				})
-				.then(() => {
-					Swal.fire({title: "Merci!", text: "Votre commande a été enregistrée!", icon: "success", allowOutsideClick: false, confirmButtonText: "Retourner au menu principal"}).then(function() {
-						location.href="/index.html";
+				if(parseInt(qb.value) + parseInt(qc.value) + parseInt(qe.value) == 0) {
+					Swal.fire({title: "Veuillez choisir un article", icon: "error"});
+				} else {
+					Swal.fire({title: "Veuillez patienter", text: "Nous procédons votre commande...", showConfirmButton: false, allowOutsideClick: false});
+					Swal.showLoading();
+					const data = new FormData(form);
+					const action = e.target.action;
+					fetch(action, {
+						method: 'POST',
+						body: data,
 					})
-				})
+					.then(() => {
+						Swal.fire({title: "Merci!", text: "Votre commande a été enregistrée!", icon: "success", allowOutsideClick: false, confirmButtonText: "Retourner au menu principal"}).then(function() {
+							location.href="/index.html";
+						})
+					})
+				}
 			});
 		});
   </script>
