@@ -102,7 +102,8 @@
 		  <input name="Groupe" type="number" placeholder="Groupe" required>
 		  <br>
 		  <br>
-		  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Confimer</button>
+		  <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Confimer</button>-->
+		  <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="Swal.fire({icon: 'error', title: 'Désolé!', text: 'Les réservations sont fermées en ce moment.'});">Confimer</button>
 	 </div>
 	  </form>
 	  
@@ -142,7 +143,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap-4.4.1.js"></script>
 	<script src="js/sweetalert.js"></script>
-	<script>
+	<!--<script>
 		window.addEventListener("load", function() {
 			const form = document.getElementById('cForm');
 			const qb = document.getElementById('qb');
@@ -169,6 +170,6 @@
 				}
 			});
 		});
-  </script>
+  </script>-->
   </body>
 </html>
